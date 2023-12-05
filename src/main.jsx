@@ -10,6 +10,7 @@ import Root from './Layout/Root';
 import Home from './Layout/Home/Home/Home';
 import Login from './Layout/Login/Login';
 import Signup from './Layout/Signup/Signup';
+import AuthProvider from './providers/AuthProvider';
 
 const router = createBrowserRouter([
   {
@@ -37,7 +38,9 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
 <div className='max-w-7xl mx-auto'>
 <React.StrictMode>
+      <AuthProvider>
       <RouterProvider router={router} />
+      </AuthProvider>
   </React.StrictMode>,
 </div>
 )
