@@ -5,7 +5,7 @@ import { useContext } from "react";
 
 const CheckOut = () => {
   const service = useLoaderData()
-  const { title, _id,price } = service
+  const { title, _id,price,img } = service
   const {user}=useContext(AuthContext)
 
   const handleBookService=e=>{
@@ -16,14 +16,22 @@ const CheckOut = () => {
    const date=form.date.value
    const email=user?.email
 
-   const order={
+   const booking={
     customerName:name,
+    img,
     email,
     date,
-    service:_id,
+    service:title,
+    service_id:_id,
     price:price
    }
-   console.log(order)
+   console.log(booking)
+
+   fetch('')
+   .then(res => res.json())
+   .then(data=>{
+    console.log(data)
+   })
   }
   return (
     <div>
